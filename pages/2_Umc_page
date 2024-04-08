@@ -9,3 +9,13 @@ def load_data(csv):
 stops = load_data('data/Officer_Traffic_Stops.csv')
 st.dataframe(stops)
 
+boxplot = (
+    alt.Chart(stops)
+    .mark_boxplot()
+    .encode(
+        x="Was_a_Search_Conducted:N",
+        y="Driver_Age:Q",
+        color=alt.Color("Was_a_Search_Conducted:N", legend=None),
+    )
+)
+boxplot
